@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const navLinks = [
   { label: "Product", href: "#product" },
-  { label: "App", href: "#newsletter" },
-  { label: "GitHub", href: "https://github.com/miruns/miruns-connect", external: true },
+  { label: "Open source", href: "https://github.com/miruns", external: true },
   { label: "Contact", href: "mailto:contact@miruns.com", external: true },
 ];
 

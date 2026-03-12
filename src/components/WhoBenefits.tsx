@@ -4,37 +4,37 @@ import { motion } from "framer-motion";
 
 const audiences = [
   {
-    icon: "🏃",
+    index: "01",
     name: "Athletes & Fitness",
     benefit:
       "Optimal workout planning, overtraining prevention, post-exercise mental recovery tracking.",
   },
   {
-    icon: "💼",
+    index: "02",
     name: "Professionals & Executives",
     benefit:
       "Monitor fatigue across long working hours. Optimise focus intervals and break timing for sustained productivity.",
   },
   {
-    icon: "📚",
+    index: "03",
     name: "Students",
     benefit:
       "Identify when cognitive capacity is falling during study sessions. Adjust pacing for better retention.",
   },
   {
-    icon: "🎮",
+    index: "04",
     name: "Gamers & Esports",
     benefit:
       "Gauge mental fatigue during marathon sessions. Protect reaction time and decision-making under pressure.",
   },
   {
-    icon: "🚗",
+    index: "05",
     name: "Drivers & Operators",
     benefit:
       "Continuous fatigue monitoring for long-haul drivers, pilots, and shift workers. Reduce accident risk.",
   },
   {
-    icon: "🩺",
+    index: "06",
     name: "Medical & Clinical",
     benefit:
       "Objective tool for patient fatigue monitoring, personalised care plans, and fatigue-management research.",
@@ -46,10 +46,12 @@ export default function WhoBenefits() {
     <section id="who" className="px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
-          Who it&apos;s for
+          Use cases
         </p>
         <h2 className="mb-14 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Sweat. Gain. Do.
+          Built for any
+          <br />
+          cognitive demand.
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -62,7 +64,7 @@ export default function WhoBenefits() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="rounded-2xl border border-card-border bg-card-bg p-6"
             >
-              <span className="mb-3 block text-2xl">{a.icon}</span>
+              <span className="mb-3 block font-mono text-xs tracking-widest text-accent">{a.index}</span>
               <h3 className="mb-1 text-base font-semibold text-foreground">
                 {a.name}
               </h3>
