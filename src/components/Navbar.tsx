@@ -3,17 +3,21 @@
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Product", href: "#product" },
-  { label: "Open source", href: "https://github.com/miruns", external: true },
-  { label: "Contact", href: "mailto:contact@miruns.com", external: true },
+  { label: "Technology", href: "#about" },
+  { label: "Github", href: "https://github.com/miruns", external: true },
+  { label: "Linkedin", href: "https://www.linkedin.com/company/miruns/", external: true },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <nav className="fixed top-0 left-0 z-50 w-full">
+      {/* Top fade — blends into page background */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background via-background/60 to-transparent pointer-events-none" />
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-background/30 to-transparent pointer-events-none" />
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         {/* Logo */}
         <a href="#" className="font-mono text-lg tracking-tight text-foreground">
           miruns

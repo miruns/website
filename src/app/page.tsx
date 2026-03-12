@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Pillars from "@/components/Pillars";
-import WhoBenefits from "@/components/WhoBenefits";
+import ScrollVideoSections from "@/components/ScrollVideoSections";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
@@ -12,9 +10,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Pillars />
-        <WhoBenefits />
+        <ScrollVideoSections />
         <Newsletter />
       </main>
       <Footer />
