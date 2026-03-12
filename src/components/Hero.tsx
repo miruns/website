@@ -44,37 +44,52 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative min-h-[300vh]">
-      {/* Single sticky container — pins to viewport while section scrolls */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
 
-        {/* Native video — scrubbed manually, no library CSS conflicts */}
+        {/* Video — fades from right, leaving left darker for text legibility */}
         <video
           ref={videoRef}
           src="/videos/miruns_Headphone_Video_seekable.mp4"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           muted
           playsInline
           preload="auto"
         />
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background z-[1]" />
+        {/* Gradient — heavy on left, light vignette bottom */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-[1]" />
 
-        {/* Content */}
-        <div className="relative h-full flex flex-col items-center justify-center z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl"
+        {/* Content — bottom-left editorial layout */}
+        <div className="absolute bottom-0 left-0 z-10 px-10 pb-16 sm:px-16 sm:pb-20 max-w-2xl">
+
+          {/* Eyebrow */}
+          <motion.p
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-5 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted"
           >
-            Neuroscience meets sport.
-          </motion.h1>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            <span className="inline-block h-px w-8 bg-muted" />
+            Biosignal Intelligence
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="mx-auto mt-6 max-w-2xl text-lg text-muted sm:text-xl"
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-7xl"
+          >
+            Neuroscience
+            <br />
+            meets sport.
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+            className="mt-6 text-base text-muted sm:text-lg leading-relaxed"
           >
             Discreetly embedded in the headphones you already wear, Miruns
             captures real-time biosignals and turns them into actionable
@@ -82,11 +97,11 @@ export default function Hero() {
           </motion.h2>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — bottom right */}
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-8 right-10 z-10 sm:right-16"
         >
           <div className="h-10 w-6 rounded-full border-2 border-muted flex items-start justify-center pt-2">
             <div className="h-2 w-1 rounded-full bg-muted" />
