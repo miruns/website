@@ -25,8 +25,7 @@ export default function Product() {
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
             Miruns is a wearable EEG headphone that monitors and predicts fatigue
-            in real-time — starting with athletes, scalable to every high-stakes
-            field.
+            in real-time.
           </p>
         </motion.div>
 
