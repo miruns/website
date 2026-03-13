@@ -50,7 +50,7 @@ export default function Pillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-2xl border border-card-border bg-card-bg p-8 transition-shadow hover:shadow-[0_0_30px_rgba(0,229,255,0.08)]"
+              className="group rounded-2xl border border-card-border bg-card-bg p-8 transition-colors hover:border-accent/30"
             >
               <span className="mb-4 block font-mono text-xs tracking-widest text-accent">{p.index}</span>
               <h3 className="mb-2 text-lg font-semibold text-foreground">

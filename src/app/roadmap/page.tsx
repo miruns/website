@@ -6,7 +6,7 @@ export default function RoadmapPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pt-20">
         <Roadmap />
       </main>
       <Footer />

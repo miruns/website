@@ -2,67 +2,85 @@
 
 import { motion } from "framer-motion";
 
+const fade = {
+  initial: { opacity: 0, y: 20 } as const,
+  whileInView: { opacity: 1, y: 0 } as const,
+  viewport: { once: true, amount: 0.3 as const },
+  transition: { duration: 0.5 },
+};
+
+const members = [
+  {
+    initials: "IR",
+    name: "Ildar Rakhmatulin, PhD",
+    role: "Founder & CEO",
+    detail: "Hardware ML & Neuroscience Researcher, Edinburgh",
+  },
+  {
+    initials: "SM",
+    name: "Prof Srinjoy Mitra, PhD",
+    role: "Academic Advisor",
+    detail: "Medical Electronics & Neural Engineering, Edinburgh",
+  },
+];
+
 export default function Team() {
   return (
-    <section className="px-8 py-32">
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-24"
-        >
-          <p className="text-sm uppercase tracking-[0.15em] text-muted mb-4">Our Team</p>
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-8">
-            The Team
+    <section className="px-6 py-28">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <motion.div {...fade} className="mb-24">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Our Team
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            The people behind
+            <br />
+            the signal.
           </h1>
-          <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            We have the industry experience, engineering talent, and sales skills to succeed.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+            Industry experience, engineering depth, and research rigor — the
+            combination needed to bring brain-level wearable intelligence to
+            market.
           </p>
         </motion.div>
 
+        {/* Team grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid gap-8 md:grid-cols-2"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-24 grid gap-6 sm:grid-cols-2"
         >
-          <div className="text-center p-8 rounded-2xl bg-card-bg border">
-            <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">👨‍🔬</span>
+          {members.map((m) => (
+            <div
+              key={m.name}
+              className="rounded-2xl border border-card-border bg-card-bg p-8"
+            >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-accent/5">
+                <span className="font-mono text-sm tracking-widest text-accent">
+                  {m.initials}
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground">{m.name}</h3>
+              <p className="mt-1 text-sm font-medium text-accent">{m.role}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {m.detail}
+              </p>
             </div>
-            <h3 className="text-xl font-medium mb-2">Ildar Rakhmatulin, PhD</h3>
-            <p className="text-muted mb-4">Founder, CEO</p>
-            <p className="text-sm text-muted">
-              Hardware ML & Neuroscience Researcher, Edinburgh
-            </p>
-          </div>
-          <div className="text-center p-8 rounded-2xl bg-card-bg border">
-            <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">🧠</span>
-            </div>
-            <h3 className="text-xl font-medium mb-2">Prof Srinjoy Mitra, PhD</h3>
-            <p className="text-muted mb-4">Academic Advisor</p>
-            <p className="text-sm text-muted">
-              Medical electronics, Neural engineering, Edinburgh
-            </p>
-          </div>
+          ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
-        >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            Advisors & Partners
+        {/* Advisors */}
+        <motion.div {...fade} transition={{ duration: 0.5, delay: 0.2 }}>
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Network
+          </p>
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Advisors &amp; Partners
           </h2>
-          <p className="text-lg text-muted">
-            We collaborate with leading experts in neuroscience, sports science, and technology to ensure our solution is cutting-edge and effective.
+          <p className="max-w-2xl text-lg leading-relaxed text-muted">
+            We collaborate with leading experts in neuroscience, sports science,
+            and technology to ensure our solution is at the cutting edge.
           </p>
         </motion.div>
       </div>

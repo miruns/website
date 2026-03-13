@@ -2,156 +2,210 @@
 
 import { motion } from "framer-motion";
 
+const fade = {
+  initial: { opacity: 0, y: 20 } as const,
+  whileInView: { opacity: 1, y: 0 } as const,
+  viewport: { once: true, amount: 0.3 as const },
+  transition: { duration: 0.5 },
+};
+
 export default function Product() {
   return (
-    <section className="px-8 py-32">
-      <div className="mx-auto max-w-7xl">
-        {/* Miruns: a Game-Changing Solution */}
+    <section className="px-6 py-28">
+      <div className="mx-auto max-w-5xl">
+        {/* Hero */}
+        <motion.div {...fade} className="mb-24">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            The Product
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Brainwave intelligence,
+            <br />
+            in your earphones.
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+            Miruns is a wearable EEG headphone that monitors and predicts fatigue
+            in real-time — starting with athletes, scalable to every high-stakes
+            field.
+          </p>
+        </motion.div>
+
+        {/* Capabilities */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-24"
         >
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-[0.15em] text-muted mb-4">The Solution</p>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-8">
-              Miruns: a Game-Changing Solution
-            </h1>
-            <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              Miruns is a groundbreaking wearable headphone device that leverages EEG technology to monitor and predict fatigue levels in real-time, tailored specifically for athletes.
-            </p>
-          </div>
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">⚡</span>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {[
+              {
+                index: "01",
+                title: "Real-Time Monitoring",
+                desc: "Tracks and predicts both physical and mental fatigue as it happens.",
+              },
+              {
+                index: "02",
+                title: "EEG Precision",
+                desc: "Direct brainwave measurement — not a proxy like heart rate or motion.",
+              },
+              {
+                index: "03",
+                title: "Seamless Form Factor",
+                desc: "Integrated into high-quality earphones you already want to wear.",
+              },
+              {
+                index: "04",
+                title: "Scalable Platform",
+                desc: "From athletes to pilots, surgeons, and operators in critical fields.",
+              },
+            ].map((item) => (
+              <div
+                key={item.index}
+                className="group rounded-2xl border border-card-border bg-card-bg p-8 transition-colors hover:border-accent/30"
+              >
+                <span className="mb-4 block font-mono text-xs tracking-widest text-accent">
+                  {item.index}
+                </span>
+                <h3 className="mb-2 text-lg font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">{item.desc}</p>
               </div>
-              <h3 className="text-lg font-medium mb-4">Real-Time Monitoring</h3>
-              <p className="text-muted">Tracks and predicts both physical and mental fatigue live.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">🧠</span>
-              </div>
-              <h3 className="text-lg font-medium mb-4">EEG Technology</h3>
-              <p className="text-muted">High accuracy with brainwave data for actionable insights.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">🎧</span>
-              </div>
-              <h3 className="text-lg font-medium mb-4">Seamless Design</h3>
-              <p className="text-muted">Integrated into high-quality earphones for convenience.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">📈</span>
-              </div>
-              <h3 className="text-lg font-medium mb-4">Scalable Impact</h3>
-              <p className="text-muted">From athletes to critical fields like military and healthcare.</p>
-            </div>
+            ))}
           </div>
         </motion.div>
 
         {/* How it works */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-24"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            How it Works
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            How it works
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Four steps from signal
+            <br />
+            to insight.
           </h2>
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">1</div>
-              <div>
-                <h3 className="text-lg font-medium">EEG Sensors</h3>
-                <p className="text-muted">Smart earphones with high-quality wireless audio capture EEG data.</p>
+          <div className="space-y-0 overflow-hidden rounded-2xl border border-card-border">
+            {[
+              {
+                step: "01",
+                title: "EEG Sensors",
+                desc: "Smart earphones with high-quality wireless audio capture brainwave data passively.",
+              },
+              {
+                step: "02",
+                title: "Signal Processing",
+                desc: "On-device and cloud processing extract fatigue markers from raw EEG signals.",
+              },
+              {
+                step: "03",
+                title: "App Visualization",
+                desc: "Data surfaces in the Miruns app as clear, actionable insights and alerts.",
+              },
+              {
+                step: "04",
+                title: "Continuous Learning",
+                desc: "Cloud storage and AI models improve predictions over time, personalized to you.",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.step}
+                className={`flex items-start gap-6 bg-card-bg p-8 ${
+                  i > 0 ? "border-t border-card-border" : ""
+                }`}
+              >
+                <span className="shrink-0 font-mono text-sm tracking-widest text-accent">
+                  {item.step}
+                </span>
+                <div>
+                  <h3 className="mb-1 text-base font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted">{item.desc}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">2</div>
-              <div>
-                <h3 className="text-lg font-medium">Data Processing</h3>
-                <p className="text-muted">EEG technology with advanced software provides real-time insights on fatigue levels.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">3</div>
-              <div>
-                <h3 className="text-lg font-medium">App Visualization</h3>
-                <p className="text-muted">Data is visualized in the Miruns app, offering users immediate and actionable insights.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">4</div>
-              <div>
-                <h3 className="text-lg font-medium">Cloud Storage</h3>
-                <p className="text-muted">The app connects to a cloud server for data storage and software updates.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Product Demo */}
+        {/* Training phases */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-16"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-24"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            Product Demo
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Your workflow
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Before, during, after.
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">Before Training</h3>
-              <p className="text-muted">See your energy levels and readiness for training. Get recommendations for warmup duration.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">During Training</h3>
-              <p className="text-muted">Immediate alerts if intensity needs adjustment. Detected signs of physical strain before injury.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">After Training</h3>
-              <p className="text-muted">Post-training analysis for performance understanding. Personalized recovery plans.</p>
-            </div>
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-card-border bg-card-border sm:grid-cols-3">
+            {[
+              {
+                phase: "Before",
+                desc: "See energy levels and readiness. Get recommendations for warmup duration and intensity.",
+              },
+              {
+                phase: "During",
+                desc: "Real-time alerts when intensity needs adjustment. Detect early signs of strain before injury.",
+              },
+              {
+                phase: "After",
+                desc: "Post-training analysis for performance review. Personalized recovery plans based on your data.",
+              },
+            ].map((item) => (
+              <div key={item.phase} className="bg-card-bg p-8">
+                <h3 className="mb-3 text-lg font-semibold text-foreground">
+                  {item.phase}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Core Features */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
+        {/* Core features */}
+        <motion.div {...fade} transition={{ duration: 0.5, delay: 0.4 }}>
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
             Core Features
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Built for precision.
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-lg border p-6">
-              <h3 className="text-lg font-medium mb-2">EEG-Based Monitoring</h3>
-              <p className="text-muted">Continuous monitoring of brain activity to detect physical and mental fatigue.</p>
-            </div>
-            <div className="rounded-lg border p-6">
-              <h3 className="text-lg font-medium mb-2">Real-Time Feedback</h3>
-              <p className="text-muted">Instant feedback on fatigue levels to optimize training and prevent overtraining.</p>
-            </div>
-            <div className="rounded-lg border p-6">
-              <h3 className="text-lg font-medium mb-2">Performance Tracking</h3>
-              <p className="text-muted">Comprehensive tracking of key performance metrics over time.</p>
-            </div>
-            <div className="rounded-lg border p-6">
-              <h3 className="text-lg font-medium mb-2">Personalized Recovery Plans</h3>
-              <p className="text-muted">Tailored recovery recommendations based on individual fatigue data.</p>
-            </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {[
+              {
+                title: "EEG-Based Monitoring",
+                desc: "Continuous monitoring of brain activity to detect physical and mental fatigue.",
+              },
+              {
+                title: "Real-Time Feedback",
+                desc: "Instant feedback on fatigue levels to optimize training and prevent overtraining.",
+              },
+              {
+                title: "Performance Tracking",
+                desc: "Comprehensive tracking of key performance metrics over time.",
+              },
+              {
+                title: "Personalized Recovery",
+                desc: "Tailored recovery recommendations based on individual fatigue data.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-card-border bg-card-bg p-6"
+              >
+                <h3 className="mb-2 text-base font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

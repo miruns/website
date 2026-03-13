@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="/" className="font-mono text-xl tracking-tight text-foreground hover:text-accent transition-colors">
           miruns

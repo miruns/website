@@ -2,196 +2,198 @@
 
 import { motion } from "framer-motion";
 
+const fade = {
+  initial: { opacity: 0, y: 20 } as const,
+  whileInView: { opacity: 1, y: 0 } as const,
+  viewport: { once: true, amount: 0.3 as const },
+  transition: { duration: 0.5 },
+};
+
 export default function About() {
   return (
-    <section className="px-8 py-32">
-      <div className="mx-auto max-w-7xl">
-        {/* The Fatigue Problem */}
+    <section className="px-6 py-28">
+      <div className="mx-auto max-w-5xl">
+        {/* Hero */}
+        <motion.div {...fade} className="mb-24">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            About Miruns
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            The fatigue problem
+            <br />
+            is invisible — until it isn&apos;t.
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+            Fatigue affects 1&nbsp;in&nbsp;3 people daily. Over 70% of sport
+            injuries are linked to fatigue, and pilot fatigue accounts for 20% of
+            human error in fatal accidents. Yet current tools can&apos;t detect it
+            before it&apos;s too late.
+          </p>
+        </motion.div>
+
+        {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="mb-24"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-24 grid gap-px overflow-hidden rounded-2xl border border-card-border bg-card-border sm:grid-cols-3"
         >
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-[0.15em] text-muted mb-4">The Problem</p>
-            <h2 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-8">
-              The Fatigue Problem
-            </h2>
-            <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              Have you ever wondered why you're always tired, even after rest? Fatigue affects 1 in 3 people daily.
-            </p>
-          </div>
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">🏃</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4">Sports Impact</h3>
-              <ul className="space-y-2 text-muted text-left">
-                <li>• Over 70% of sport injuries linked to fatigue</li>
-                <li>• Progressive fatigue leads to overtraining syndrome</li>
-                <li>• OTS affects ~65% of athletes</li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">✈️</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4">Critical Fields</h3>
-              <ul className="space-y-2 text-muted text-left">
-                <li>• Pilot fatigue: 20% of human error in fatal accidents</li>
-                <li>• Fatigued workers: 6 days lost productivity per year</li>
-                <li>• Mental health connection</li>
-              </ul>
-            </div>
-            <div className="text-center md:col-span-2 lg:col-span-1">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">📊</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4">The Scale</h3>
-              <p className="text-muted">
-                Fatigue is a BIG issue across health, safety, and productivity sectors.
+          {[
+            { value: "70%", label: "of sport injuries linked to fatigue" },
+            { value: "65%", label: "of athletes affected by overtraining" },
+            { value: "20%", label: "of fatal aviation errors from fatigue" },
+          ].map((stat) => (
+            <div key={stat.value} className="bg-card-bg p-8 text-center">
+              <p className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                {stat.value}
               </p>
+              <p className="mt-2 text-sm text-muted">{stat.label}</p>
             </div>
-          </div>
+          ))}
         </motion.div>
 
         {/* Why Miruns */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-24"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            Why Miruns?
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Why Miruns
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            The first wearable that reads
+            <br />
+            your brain — not just your body.
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">Enhanced Training</h3>
-              <p className="text-muted">Real-time insights to optimize performance and reduce injury risk.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">Scalable Impact</h3>
-              <p className="text-muted">EEG database for AI, expanding beyond athletes to critical fields.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-medium mb-4">Strong Team & Roadmap</h3>
-              <p className="text-muted">Experienced team with clear path from prototype to market.</p>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <p className="text-lg font-medium">
-              The first wearable using brainwave data to track and predict your energy levels — starting with athletes, scalable for critical fields.
-            </p>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                index: "01",
+                title: "Enhanced Training",
+                desc: "Real-time insights to optimize performance and reduce injury risk through direct brainwave monitoring.",
+              },
+              {
+                index: "02",
+                title: "Scalable Impact",
+                desc: "EEG database for AI, expanding beyond athletes to military, healthcare, and critical operations.",
+              },
+              {
+                index: "03",
+                title: "Clear Roadmap",
+                desc: "Experienced team with a defined path from prototype to market leadership in fatigue monitoring.",
+              },
+            ].map((item) => (
+              <div
+                key={item.index}
+                className="rounded-2xl border border-card-border bg-card-bg p-8"
+              >
+                <span className="mb-4 block font-mono text-xs tracking-widest text-accent">
+                  {item.index}
+                </span>
+                <h3 className="mb-2 text-lg font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Current Solutions and Their Limitations */}
+        {/* Limitations */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-16"
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-24"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            Current Solutions and Their Limitations
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Landscape
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Existing solutions fall short.
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="text-xl font-medium mb-4">Available Solutions</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-medium">Wearable Fitness Trackers</h4>
-                  <p className="text-sm text-muted">Track physical activity, heart rate, sleep. Lack precision for fatigue detection.</p>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {[
+              {
+                title: "Wearable Trackers",
+                issue:
+                  "Track heart rate and activity — but lack precision for fatigue detection.",
+              },
+              {
+                title: "Sports Science Tools",
+                issue:
+                  "Analyze movement patterns — but require expensive, specialized settings.",
+              },
+              {
+                title: "Self-Reported Surveys",
+                issue:
+                  "Athletes self-assess fatigue — subjective and prone to bias.",
+              },
+              {
+                title: "Clinical EEG",
+                issue:
+                  "Medical-grade brain monitoring — but bulky, costly, and impractical for daily use.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-card-border bg-card-bg p-6"
+              >
+                <h3 className="mb-2 text-base font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">{item.issue}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Competitive edge */}
+        <motion.div {...fade} transition={{ duration: 0.5, delay: 0.4 }}>
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Competitive Edge
+          </p>
+          <h2 className="mb-12 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            How Miruns compares.
+          </h2>
+          <div className="overflow-hidden rounded-2xl border border-card-border">
+            {/* Header */}
+            <div className="grid grid-cols-5 gap-px bg-card-border text-xs font-medium uppercase tracking-widest text-muted">
+              <div className="bg-background p-4">Company</div>
+              <div className="bg-background p-4 text-center">Channels</div>
+              <div className="bg-background p-4 text-center">Cost</div>
+              <div className="bg-background p-4 text-center">Fatigue</div>
+              <div className="bg-background p-4 text-center">AI</div>
+            </div>
+            {/* Rows */}
+            {[
+              { name: "Neurable", channels: "12", cost: "$649", fatigue: false, ai: false },
+              { name: "Emotiv", channels: "2–32", cost: "$1,999", fatigue: false, ai: false },
+              { name: "Muse", channels: "5", cost: "$453", fatigue: false, ai: false },
+              { name: "Miruns", channels: "4–24", cost: "From $250", fatigue: true, ai: true, highlight: true },
+            ].map((row) => (
+              <div
+                key={row.name}
+                className={`grid grid-cols-5 gap-px bg-card-border text-sm ${
+                  row.highlight ? "font-medium text-foreground" : "text-muted"
+                }`}
+              >
+                <div className={`p-4 ${row.highlight ? "bg-accent/5" : "bg-card-bg"}`}>
+                  {row.name}
                 </div>
-                <div>
-                  <h4 className="font-medium">Sports Science Tools</h4>
-                  <p className="text-sm text-muted">Analyze movement patterns. High cost, requires specialized settings.</p>
+                <div className={`p-4 text-center ${row.highlight ? "bg-accent/5" : "bg-card-bg"}`}>
+                  {row.channels}
                 </div>
-                <div>
-                  <h4 className="font-medium">Self-Reported Surveys</h4>
-                  <p className="text-sm text-muted">Athletes self-assess fatigue. Subjective and prone to bias.</p>
+                <div className={`p-4 text-center ${row.highlight ? "bg-accent/5" : "bg-card-bg"}`}>
+                  {row.cost}
+                </div>
+                <div className={`p-4 text-center ${row.highlight ? "bg-accent/5" : "bg-card-bg"}`}>
+                  {row.fatigue ? "Yes" : "—"}
+                </div>
+                <div className={`p-4 text-center ${row.highlight ? "bg-accent/5" : "bg-card-bg"}`}>
+                  {row.ai ? "Yes" : "—"}
                 </div>
               </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-medium mb-4">Limitations</h3>
-              <ul className="space-y-2 text-muted">
-                <li>• Lack precision and real-time monitoring</li>
-                <li>• Expensive and inaccessible</li>
-                <li>• Limited to physical metrics only</li>
-                <li>• No early fatigue detection</li>
-                <li>• Reactive rather than proactive</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Competitors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mb-8">
-            Competitors
-          </h2>
-          <p className="text-lg text-muted mb-6">
-            Miruns stands out with integrated EEG technology, real-time monitoring, and affordability.
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-border text-sm">
-              <thead>
-                <tr className="bg-muted/50">
-                  <th className="border border-border p-2">Company</th>
-                  <th className="border border-border p-2">Headphones</th>
-                  <th className="border border-border p-2">Channels</th>
-                  <th className="border border-border p-2">Cost</th>
-                  <th className="border border-border p-2">Detect Fatigue</th>
-                  <th className="border border-border p-2">AI Platform</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-border p-2">Neurable</td>
-                  <td className="border border-border p-2">Yes</td>
-                  <td className="border border-border p-2">12</td>
-                  <td className="border border-border p-2">$649</td>
-                  <td className="border border-border p-2">No</td>
-                  <td className="border border-border p-2">No</td>
-                </tr>
-                <tr>
-                  <td className="border border-border p-2">Emotiv</td>
-                  <td className="border border-border p-2">Yes</td>
-                  <td className="border border-border p-2">2-32</td>
-                  <td className="border border-border p-2">$1,999</td>
-                  <td className="border border-border p-2">No</td>
-                  <td className="border border-border p-2">No</td>
-                </tr>
-                <tr>
-                  <td className="border border-border p-2">Muse</td>
-                  <td className="border border-border p-2">Yes</td>
-                  <td className="border border-border p-2">5</td>
-                  <td className="border border-border p-2">$453</td>
-                  <td className="border border-border p-2">No</td>
-                  <td className="border border-border p-2">No</td>
-                </tr>
-                <tr className="bg-primary/10">
-                  <td className="border border-border p-2 font-bold">Miruns</td>
-                  <td className="border border-border p-2 font-bold">Yes</td>
-                  <td className="border border-border p-2 font-bold">4/8/16/24</td>
-                  <td className="border border-border p-2 font-bold">From $250</td>
-                  <td className="border border-border p-2 font-bold">Yes</td>
-                  <td className="border border-border p-2 font-bold">Yes</td>
-                </tr>
-              </tbody>
-            </table>
+            ))}
           </div>
         </motion.div>
       </div>

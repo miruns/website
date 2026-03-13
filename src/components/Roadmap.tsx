@@ -2,88 +2,103 @@
 
 import { motion } from "framer-motion";
 
-export default function Roadmap() {
-  const timeline = [
-    {
-      year: "2024",
-      milestones: [
-        "First mechanical prototype created",
-        "Software, Signal Processing",
-        "PoC confirmed: possible to collect EEG and predict fatigue",
-        "Mobile application",
-        "New sport design",
-        "Active fundraising initiated in 2H 2024 to finalise prototype and integrate basic functionalities E2E"
-      ]
-    },
-    {
-      year: "2025",
-      milestones: [
-        "Develop MVP and test it on a sample of early adopters",
-        "Mechanical and chemical design",
-        "Application enhancement",
-        "Continue data collection for AI model",
-        "Pre-Seed funding"
-      ]
-    },
-    {
-      year: "2026",
-      milestones: [
-        "Finalise the product, set up manufacturing, and prepare marketing strategies",
-        "Secure necessary certifications and ensure scalability for production",
-        "Seed funding",
-        "Q4'26 Launch"
-      ]
-    },
-    {
-      year: "2027",
-      milestones: [
-        "Expansion to secondary markets (military, healthcare, etc.)",
-        "Product enhancements and additional features",
-        "Series A funding"
-      ]
-    }
-  ];
+const fade = {
+  initial: { opacity: 0, y: 20 } as const,
+  whileInView: { opacity: 1, y: 0 } as const,
+  viewport: { once: true, amount: 0.3 as const },
+  transition: { duration: 0.5 },
+};
 
+const timeline = [
+  {
+    year: "2024",
+    label: "Foundation",
+    milestones: [
+      "First mechanical prototype created",
+      "Signal processing & software development",
+      "PoC confirmed: EEG-based fatigue prediction",
+      "Mobile application development",
+      "Active fundraising initiated in 2H 2024",
+    ],
+  },
+  {
+    year: "2025",
+    label: "Validation",
+    milestones: [
+      "MVP development and early-adopter testing",
+      "Mechanical and chemical design refinement",
+      "Application enhancement",
+      "Continued data collection for AI models",
+      "Pre-Seed funding",
+    ],
+  },
+  {
+    year: "2026",
+    label: "Launch",
+    milestones: [
+      "Product finalization and manufacturing setup",
+      "Certifications and production scalability",
+      "Seed funding",
+      "Q4 2026 — Market launch",
+    ],
+  },
+  {
+    year: "2027",
+    label: "Expansion",
+    milestones: [
+      "Secondary markets: military, healthcare, aviation",
+      "Product enhancements and new features",
+      "Series A funding",
+    ],
+  },
+];
+
+export default function Roadmap() {
   return (
-    <section className="px-8 py-32">
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-24"
-        >
-          <p className="text-sm uppercase tracking-[0.15em] text-muted mb-4">Our Journey</p>
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-8">
-            Progressive Timeline and Roadmap
+    <section className="px-6 py-28">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <motion.div {...fade} className="mb-24">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
+            Roadmap
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            From prototype
+            <br />
+            to market.
           </h1>
-          <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            From prototype to market leadership in fatigue monitoring technology.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+            A clear, phased trajectory from proof-of-concept to commercial scale
+            in fatigue monitoring technology.
           </p>
         </motion.div>
 
-        <div className="space-y-12">
-          {timeline.map((phase, index) => (
+        {/* Timeline */}
+        <div className="overflow-hidden rounded-2xl border border-card-border">
+          {timeline.map((phase, i) => (
             <motion.div
               key={phase.year}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={`bg-card-bg p-8 sm:p-10 ${
+                i > 0 ? "border-t border-card-border" : ""
+              }`}
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">
+              <div className="mb-6 flex items-baseline gap-4">
+                <span className="font-mono text-2xl tracking-tight text-accent sm:text-3xl">
                   {phase.year}
-                </div>
-                <h2 className="text-2xl font-semibold">{phase.year}</h2>
+                </span>
+                <span className="text-sm font-medium uppercase tracking-widest text-muted">
+                  {phase.label}
+                </span>
               </div>
-              <div className="ml-16 space-y-2">
-                {phase.milestones.map((milestone, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-muted flex-shrink-0"></div>
-                    <p className="text-muted">{milestone}</p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {phase.milestones.map((m) => (
+                  <div key={m} className="flex items-start gap-3">
+                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-muted" />
+                    <p className="text-sm leading-relaxed text-muted">{m}</p>
                   </div>
                 ))}
               </div>

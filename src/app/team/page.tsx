@@ -6,7 +6,7 @@ export default function TeamPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pt-20">
         <Team />
       </main>
       <Footer />

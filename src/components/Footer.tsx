@@ -1,58 +1,69 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border px-8 py-16">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 sm:flex-row">
-        {/* Left */}
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-          <span className="font-mono text-lg tracking-tight text-foreground">
+    <footer className="border-t border-border">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 sm:grid-cols-3">
+        {/* Brand */}
+        <div>
+          <a
+            href="/"
+            className="font-mono text-lg tracking-tight text-foreground"
+          >
             miruns
-          </span>
-          <div className="flex flex-col gap-4 text-sm text-muted sm:flex-row">
-            <a href="/product" className="transition-colors hover:text-foreground">
-              Product
-            </a>
-            <a href="/about" className="transition-colors hover:text-foreground">
-              About
-            </a>
-            <a href="/market" className="transition-colors hover:text-foreground">
-              Market
-            </a>
-            <a href="/team" className="transition-colors hover:text-foreground">
-              Team
-            </a>
-            <a href="/roadmap" className="transition-colors hover:text-foreground">
-              Roadmap
-            </a>
-          </div>
+          </a>
+          <p className="mt-3 text-sm text-muted">
+            Neuroscience meets sport.
+          </p>
         </div>
 
-        {/* Right */}
-        <div className="flex flex-col items-center gap-4 text-sm text-muted sm:items-end">
-          <div className="flex gap-6">
-            <a
-              href="https://github.com/miruns"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-foreground"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/company/miruns/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-foreground"
-            >
-              LinkedIn
-            </a>
-          </div>
+        {/* Navigation */}
+        <div className="flex flex-col gap-3 text-sm text-muted">
+          <a href="/product" className="w-fit transition-colors hover:text-foreground">
+            Product
+          </a>
+          <a href="/about" className="w-fit transition-colors hover:text-foreground">
+            About
+          </a>
+          <a href="/team" className="w-fit transition-colors hover:text-foreground">
+            Team
+          </a>
+          <a href="/roadmap" className="w-fit transition-colors hover:text-foreground">
+            Roadmap
+          </a>
+        </div>
+
+        {/* Connect */}
+        <div className="flex flex-col gap-3 text-sm text-muted sm:items-end">
+          <a
+            href="https://github.com/miruns"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-fit transition-colors hover:text-foreground"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/company/miruns/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-fit transition-colors hover:text-foreground"
+          >
+            LinkedIn
+          </a>
           <a
             href="mailto:contact@miruns.com"
-            className="transition-colors hover:text-foreground"
+            className="w-fit transition-colors hover:text-foreground"
           >
             contact@miruns.com
           </a>
-          <span>&copy; {new Date().getFullYear()} Miruns</span>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+          <span className="text-xs text-muted">
+            &copy; {new Date().getFullYear()} Miruns
+          </span>
         </div>
       </div>
     </footer>

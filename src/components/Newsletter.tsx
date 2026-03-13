@@ -14,7 +14,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="px-6 py-28">
+    <section id="newsletter" className="border-t border-border px-6 py-28">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
