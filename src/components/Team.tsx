@@ -19,8 +19,29 @@ const members = [
   {
     initials: "SM",
     name: "Prof Srinjoy Mitra, PhD",
-    role: "Academic Advisor",
+    role: "Hardware",
     detail: "Medical Electronics & Neural Engineering, Edinburgh",
+  },
+];
+
+const advisors = [
+  {
+    initials: "VT",
+    name: "Vassiliy Tsytsarev",
+    affiliation: "University of Maryland",
+    tags: ["neuroscience", "neurophotonics"],
+  },
+  {
+    initials: "IL",
+    name: "Igor Lavrov",
+    affiliation: "Mayo Clinic",
+    tags: ["Neuromodulation", "Spinal cord Injury", "Neuroprosthetics"],
+  },
+  {
+    initials: "RO",
+    name: "Robert Oostenveld",
+    affiliation: "Donders Institute for Brain, Cognition and Behaviour",
+    tags: ["MEG", "EEG", "electrophysiology", "modeling", "data analysis"],
   },
 ];
 
@@ -70,18 +91,45 @@ export default function Team() {
           ))}
         </motion.div>
 
-        {/* Advisors */}
+        {/* Academic Advisors */}
         <motion.div {...fade} transition={{ duration: 0.5, delay: 0.2 }}>
           <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
-            Network
+            Academic Advisors
           </p>
-          <h2 className="mb-6 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mb-8 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Advisors &amp; Partners
           </h2>
-          <p className="max-w-2xl text-lg leading-relaxed text-muted">
-            We collaborate with leading experts in neuroscience, sports science,
-            and technology to ensure our solution is at the cutting edge.
-          </p>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {advisors.map((a) => (
+              <div
+                key={a.name}
+                className="rounded-2xl border border-card-border bg-card-bg p-8"
+              >
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-accent/5">
+                  <span className="font-mono text-sm tracking-widest text-accent">
+                    {a.initials}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {a.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-accent">
+                  {a.affiliation}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {a.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-card-border px-2.5 py-0.5 text-xs text-muted"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
