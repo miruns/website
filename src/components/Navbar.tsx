@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -18,7 +19,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="/" className="font-mono text-xl tracking-tight text-foreground hover:text-accent transition-colors">
+        <a href="/" className="flex items-center gap-2 font-mono text-xl tracking-tight text-foreground hover:text-accent transition-colors">
+          <Image src="/miruns-icon.png" alt="Miruns logo" width={32} height={32} className="rounded-md" />
           miruns
         </a>
 

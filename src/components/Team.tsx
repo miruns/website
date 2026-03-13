@@ -30,7 +30,7 @@ const members = [
     initials: "YE",
     name: "Youssef El Abbassi",
     role: "Software",
-    detail: "Software & Dev Experience, Ottawa",
+    detail: "Software & Dev Experience, Gatineau",
     link: "https://github.com/yelabb",
     linkLabel: "GitHub",
   },
