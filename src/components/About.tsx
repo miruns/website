@@ -21,7 +21,7 @@ export default function About() {
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             The fatigue problem
             <br />
-            is invisible — until it isn&apos;t.
+            is invisible, until it isn&apos;t.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
             Fatigue affects 1&nbsp;in&nbsp;3 people daily. Over 70% of sport

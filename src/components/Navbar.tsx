@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -25,7 +26,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -38,6 +39,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <ThemeSwitcher />
         </div>
 
         {/* Mobile hamburger */}
@@ -80,6 +82,9 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <div className="pt-2 border-t border-border">
+                <ThemeSwitcher />
+              </div>
             </div>
           </div>
         )}
