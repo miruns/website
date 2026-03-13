@@ -93,7 +93,7 @@ export default function Hero() {
           >
             Discreetly embedded in the headphones you already wear, Miruns
             captures real-time biosignals and turns them into actionable
-            intelligence for athletes and professionals.
+            intelligence.
           </motion.p>
 
           <motion.div

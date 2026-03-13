@@ -15,12 +15,24 @@ const members = [
     name: "Ildar Rakhmatulin, PhD",
     role: "Founder & CEO",
     detail: "Hardware ML & Neuroscience Researcher, Edinburgh",
+    link: "https://scholar.google.com/citations?user=L8q-KSoAAAAJ&hl=en",
+    linkLabel: "Google Scholar",
   },
   {
     initials: "SM",
     name: "Prof Srinjoy Mitra, PhD",
     role: "Hardware",
     detail: "Medical Electronics & Neural Engineering, Edinburgh",
+    link: "https://scholar.google.com/citations?user=6dxU0p4AAAAJ&hl=en",
+    linkLabel: "Google Scholar",
+  },
+  {
+    initials: "YE",
+    name: "Youssef El Abbassi",
+    role: "Software",
+    detail: "Software & Dev Experience, Ottawa",
+    link: "https://github.com/yelabb",
+    linkLabel: "GitHub",
   },
 ];
 
@@ -30,18 +42,21 @@ const advisors = [
     name: "Vassiliy Tsytsarev",
     affiliation: "University of Maryland",
     tags: ["neuroscience", "neurophotonics"],
+    link: "https://scholar.google.com/citations?user=gHmwrMgAAAAJ&hl=en",
   },
   {
     initials: "IL",
     name: "Igor Lavrov",
     affiliation: "Mayo Clinic",
     tags: ["Neuromodulation", "Spinal cord Injury", "Neuroprosthetics"],
+    link: "https://scholar.google.com/citations?user=F3csvfUAAAAJ&hl=en",
   },
   {
     initials: "RO",
     name: "Robert Oostenveld",
     affiliation: "Donders Institute for Brain, Cognition and Behaviour",
     tags: ["MEG", "EEG", "electrophysiology", "modeling", "data analysis"],
+    link: "https://scholar.google.com/citations?user=eEbaa0UAAAAJ&hl=en",
   },
 ];
 
@@ -60,7 +75,7 @@ export default function Team() {
             the signal.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-            Industry experience, engineering depth, and research rigor — the
+            Industry experience, engineering depth, and research rigor, the
             combination needed to bring brain-level wearable intelligence to
             market.
           </p>
@@ -70,7 +85,7 @@ export default function Team() {
         <motion.div
           {...fade}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-24 grid gap-6 sm:grid-cols-2"
+          className="mb-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {members.map((m) => (
             <div
@@ -87,6 +102,29 @@ export default function Team() {
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 {m.detail}
               </p>
+              <a
+                href={m.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
+              >
+                {m.linkLabel}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
             </div>
           ))}
         </motion.div>
@@ -117,6 +155,29 @@ export default function Team() {
                 <p className="mt-1 text-sm font-medium text-accent">
                   {a.affiliation}
                 </p>
+                <a
+                  href={a.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
+                >
+                  Google Scholar
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {a.tags.map((tag) => (
                     <span
