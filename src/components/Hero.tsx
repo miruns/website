@@ -61,16 +61,16 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-[1]" />
 
         {/* Content — bottom-left editorial layout */}
-        <div className="absolute bottom-0 left-0 z-10 px-10 pb-16 sm:px-16 sm:pb-20 max-w-2xl">
+        <div className="absolute bottom-0 left-0 z-10 px-8 pb-20 sm:px-12 sm:pb-24 max-w-3xl">
 
           {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-5 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted"
+            className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-muted"
           >
-            <span className="inline-block h-px w-8 bg-muted" />
+            <span className="inline-block h-px w-10 bg-muted" />
             Biosignal Intelligence
           </motion.p>
 
@@ -78,23 +78,43 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-            className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-7xl"
+            className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-7xl lg:text-8xl"
           >
             Neuroscience
             <br />
             meets sport.
           </motion.h1>
 
-          <motion.h2
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
-            className="mt-6 text-base text-muted sm:text-lg leading-relaxed"
+            className="mt-8 text-lg text-muted leading-relaxed sm:text-xl max-w-2xl"
           >
             Discreetly embedded in the headphones you already wear, Miruns
             captures real-time biosignals and turns them into actionable
-            intelligence.
-          </motion.h2>
+            intelligence for athletes and professionals.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            className="mt-10 flex flex-col sm:flex-row gap-4"
+          >
+            <a
+              href="/product"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-medium rounded-full hover:bg-accent/90 transition-colors"
+            >
+              Learn More
+            </a>
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center px-8 py-4 border border-border bg-card-bg text-foreground font-medium rounded-full hover:bg-hover transition-colors"
+            >
+              Our Story
+            </a>
+          </motion.div>
         </div>
 
         {/* Scroll indicator — bottom right */}

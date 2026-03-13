@@ -1,16 +1,34 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 px-6 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
+    <footer className="border-t border-border px-8 py-16">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 sm:flex-row">
         {/* Left */}
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-          <span className="font-mono text-sm tracking-tight text-foreground">
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+          <span className="font-mono text-lg tracking-tight text-foreground">
             miruns
           </span>
-          <div className="flex gap-6 text-sm text-muted">
-            <a href="#product" className="transition-colors hover:text-foreground">
+          <div className="flex flex-col gap-4 text-sm text-muted sm:flex-row">
+            <a href="/product" className="transition-colors hover:text-foreground">
               Product
             </a>
+            <a href="/about" className="transition-colors hover:text-foreground">
+              About
+            </a>
+            <a href="/market" className="transition-colors hover:text-foreground">
+              Market
+            </a>
+            <a href="/team" className="transition-colors hover:text-foreground">
+              Team
+            </a>
+            <a href="/roadmap" className="transition-colors hover:text-foreground">
+              Roadmap
+            </a>
+          </div>
+        </div>
+
+        {/* Right */}
+        <div className="flex flex-col items-center gap-4 text-sm text-muted sm:items-end">
+          <div className="flex gap-6">
             <a
               href="https://github.com/miruns"
               target="_blank"
@@ -28,10 +46,6 @@ export default function Footer() {
               LinkedIn
             </a>
           </div>
-        </div>
-
-        {/* Right */}
-        <div className="flex flex-col items-center gap-2 text-sm text-muted sm:items-end">
           <a
             href="mailto:contact@miruns.com"
             className="transition-colors hover:text-foreground"
