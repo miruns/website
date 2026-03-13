@@ -10,17 +10,23 @@ export default function Hero() {
   const rafId = useRef<number>(0);
 
   useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 768px)").matches;
+
     const video = videoRef.current;
     if (!video) return;
 
-    // Use visualViewport height on mobile for accurate visible area
+    if (mobile) {
+      // Mobile: simple autoplay loop — scroll-scrub is unreliable on mobile browsers
+      video.loop = true;
+      video.play().catch(() => {});
+      return;
+    }
+
+    // Desktop: scroll-driven video scrub
     const getViewportHeight = () =>
       window.visualViewport?.height ?? window.innerHeight;
 
-    // RAF loop — lerps currentTime toward targetTime each frame
-    // Higher lerp factor on mobile for snappier response (fewer scroll events)
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const lerpFactor = isMobile ? 0.2 : 0.12;
+    const lerpFactor = 0.12;
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
     const tick = () => {
       if (video.duration) {
@@ -48,7 +54,6 @@ export default function Hero() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    // touchmove fires more frequently than scroll during momentum on mobile
     window.addEventListener("touchmove", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -58,11 +63,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[200dvh] md:min-h-[300dvh]">
-      {/* h-dvh uses dynamic viewport height — accurate on mobile with browser chrome */}
+    <section
+      ref={sectionRef}
+      className="relative min-h-dvh md:min-h-[300dvh]"
+    >
       <div className="sticky top-0 h-dvh w-full overflow-hidden">
 
-        {/* Video — fades from right, leaving left darker for text legibility */}
+        {/* Video background */}
         <video
           ref={videoRef}
           src="/videos/miruns_Headphone_Video_seekable.mp4"

@@ -36,30 +36,6 @@ const members = [
   },
 ];
 
-const advisors = [
-  {
-    initials: "VT",
-    name: "Vassiliy Tsytsarev",
-    affiliation: "University of Maryland",
-    tags: ["neuroscience", "neurophotonics"],
-    link: "https://scholar.google.com/citations?user=gHmwrMgAAAAJ&hl=en",
-  },
-  {
-    initials: "IL",
-    name: "Igor Lavrov",
-    affiliation: "Mayo Clinic",
-    tags: ["Neuromodulation", "Spinal cord Injury", "Neuroprosthetics"],
-    link: "https://scholar.google.com/citations?user=F3csvfUAAAAJ&hl=en",
-  },
-  {
-    initials: "RO",
-    name: "Robert Oostenveld",
-    affiliation: "Donders Institute for Brain, Cognition and Behaviour",
-    tags: ["MEG", "EEG", "electrophysiology", "modeling", "data analysis"],
-    link: "https://scholar.google.com/citations?user=eEbaa0UAAAAJ&hl=en",
-  },
-];
-
 export default function Team() {
   return (
     <section className="px-6 py-28">
@@ -129,69 +105,6 @@ export default function Team() {
           ))}
         </motion.div>
 
-        {/* Academic Advisors */}
-        <motion.div {...fade} transition={{ duration: 0.5, delay: 0.2 }}>
-          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
-            Academic Advisors
-          </p>
-          <h2 className="mb-8 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Advisors &amp; Partners
-          </h2>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {advisors.map((a) => (
-              <div
-                key={a.name}
-                className="rounded-2xl border border-card-border bg-card-bg p-8"
-              >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-accent/5">
-                  <span className="font-mono text-sm tracking-widest text-accent">
-                    {a.initials}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  {a.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-accent">
-                  {a.affiliation}
-                </p>
-                <a
-                  href={a.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
-                >
-                  Google Scholar
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {a.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-card-border px-2.5 py-0.5 text-xs text-muted"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
