@@ -6,7 +6,7 @@ export default function ProductPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
+      <main>
         <Product />
       </main>
       <Footer />

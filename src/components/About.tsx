@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import VideoHero from "./VideoHero";
 
 const fade = {
   initial: { opacity: 0, y: 20 } as const,
@@ -11,25 +12,44 @@ const fade = {
 
 export default function About() {
   return (
-    <section className="px-6 py-28">
+    <>
+      <VideoHero src="/videos/Cyclist_Miruns_Video_Generation_seekable.mp4">
+        <motion.p
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-muted"
+        >
+          <span className="inline-block h-px w-10 bg-muted" />
+          About Miruns
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-7xl lg:text-8xl"
+        >
+          The fatigue problem
+          <br />
+          is invisible, until it isn&apos;t.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+          className="mt-8 text-lg text-muted leading-relaxed sm:text-xl max-w-2xl"
+        >
+          Fatigue affects 1&nbsp;in&nbsp;3 people daily. Over 70% of sport
+          injuries are linked to fatigue, and pilot fatigue accounts for 20% of
+          human error in fatal accidents. Yet current tools can&apos;t detect it
+          before it&apos;s too late.
+        </motion.p>
+      </VideoHero>
+
+      <section className="px-6 py-28">
       <div className="mx-auto max-w-5xl">
-        {/* Hero */}
-        <motion.div {...fade} className="mb-24">
-          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
-            About Miruns
-          </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            The fatigue problem
-            <br />
-            is invisible, until it isn&apos;t.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-            Fatigue affects 1&nbsp;in&nbsp;3 people daily. Over 70% of sport
-            injuries are linked to fatigue, and pilot fatigue accounts for 20% of
-            human error in fatal accidents. Yet current tools can&apos;t detect it
-            before it&apos;s too late.
-          </p>
-        </motion.div>
 
         {/* Stats */}
         <motion.div
@@ -198,5 +218,6 @@ export default function About() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }
