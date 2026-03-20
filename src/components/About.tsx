@@ -167,8 +167,9 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Competitive edge */}
-        <motion.div {...fade} transition={{ duration: 0.5, delay: 0.4 }}>
+        {/* 
+    
+            <motion.div {...fade} transition={{ duration: 0.5, delay: 0.4 }}>
           <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted">
             Competitive Edge
           </p>
@@ -176,7 +177,7 @@ export default function About() {
             How Miruns compares.
           </h2>
           <div className="overflow-hidden rounded-2xl border border-card-border">
-            {/* Header */}
+            
             <div className="grid grid-cols-5 gap-px bg-card-border text-xs font-medium uppercase tracking-widest text-muted">
               <div className="bg-background p-4">Company</div>
               <div className="bg-background p-4 text-center">Channels</div>
@@ -184,7 +185,7 @@ export default function About() {
               <div className="bg-background p-4 text-center">Fatigue</div>
               <div className="bg-background p-4 text-center">AI</div>
             </div>
-            {/* Rows */}
+           
             {[
               { name: "Neurable", channels: "12", cost: "$649", fatigue: false, ai: false },
               { name: "Emotiv", channels: "2–32", cost: "$1,999", fatigue: false, ai: false },
@@ -216,6 +217,12 @@ export default function About() {
             ))}
           </div>
         </motion.div>
+        
+        
+        
+        
+        */}
+
       </div>
     </section>
     </>
