@@ -7,7 +7,6 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Product", href: "/product" },
-  { label: "Team", href: "/team" },
   { label: "Roadmap", href: "/roadmap" },
 ];
 

@@ -23,9 +23,6 @@ export default function Footer() {
           <a href="/about" className="w-fit transition-colors hover:text-foreground">
             About
           </a>
-          <a href="/team" className="w-fit transition-colors hover:text-foreground">
-            Team
-          </a>
           <a href="/roadmap" className="w-fit transition-colors hover:text-foreground">
             Roadmap
           </a>
